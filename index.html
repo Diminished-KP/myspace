@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpaceNet - Jonas Kahnwald (Winden 2019 / 1986 / 1953)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="myspace-header">
+    <div class="header-container">
+      <div class="logo">
+        <span class="logo-text">space<span>net</span></span>
+        <span class="tagline">// Sic Mundus Creatus Est</span>
+      </div>
+      <nav class="top-nav">
+        <a href="#">Domů</a> |
+        <a href="#">Lidé</a> |
+        <a href="#">Hledat</a> |
+        <a href="#">Hudba</a> |
+        <a href="#">Fóra</a> |
+        <a href="#">Časová osa</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="profile-container">
+    <!-- Top banner / User title -->
+    <div class="user-header">
+      <h1 class="user-name">Jonas Kahnwald</h1>
+      <p class="user-headline">"Konec je počátek a počátek je konec."</p>
+    </div>
+
+    <div class="grid-layout">
+      <!-- Left Column -->
+      <aside class="left-column">
+        <!-- Main Profile Box -->
+        <div class="box profile-card">
+          <div class="avatar-wrapper mirrored-frame">
+            <!-- Provided photo of Jonas Kahnwald -->
+            <img src="assets/jonas.jpg" alt="Jonas Kahnwald" class="jonas-photo">
+
+            <!-- Mirrored & Kaleidoscope Dark Overlay Grid -->
+            <svg class="kaleidoscope-overlay" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+              <g opacity="0.35" stroke="#ffd000" stroke-width="1.5" fill="none">
+                <circle cx="150" cy="150" r="120" stroke-dasharray="4,4"/>
+                <circle cx="110" cy="130" r="65" stroke="#ffe600" opacity="0.4"/>
+                <circle cx="190" cy="130" r="65" stroke="#ffe600" opacity="0.4"/>
+                <line x1="0" y1="0" x2="300" y2="300"/>
+                <line x1="300" y1="0" x2="0" y2="300"/>
+                <line x1="150" y1="0" x2="150" y2="300"/>
+                <line x1="0" y1="150" x2="300" y2="150"/>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Basic Info Table -->
+          <table class="info-table">
+            <tbody>
+              <tr>
+                <th>Jméno:</th>
+                <td>Jonas Kahnwald</td>
+              </tr>
+              <tr>
+                <th>Věk:</th>
+                <td>16 (v roce 2019)</td>
+              </tr>
+              <tr>
+                <th>Bydliště:</th>
+                <td>Winden, Německo</td>
+              </tr>
+              <tr>
+                <th>Status:</th>
+                <td>Ztracený v čase ⏳</td>
+              </tr>
+              <tr>
+                <th>Nálada:</th>
+                <td>Hledající odpovědi... 🌀</td>
+              </tr>
+              <tr>
+                <th>Poslední přihlášení:</th>
+                <td>04.11.2019 / 12.11.1953</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Music Player Simulation -->
+        <div class="box music-player-box">
+          <div class="box-header">
+            <h3>🎵 Jonasův Přehrávač</h3>
+          </div>
+          <div class="player-content">
+            <div class="track-info">
+              <span class="track-title">Apparat – Goodbye</span>
+              <span class="track-sub">Znělka / Theme song (Dark)</span>
+            </div>
+
+            <audio id="audio-player" preload="metadata">
+              <!-- Royalty free ambient / dark synth atmospheric audio sample synthesized or embedded -->
+              <source src="assets/goodbye_theme.mp3" type="audio/mpeg">
+              Váš prohlížeč nepodporuje prehrávání audia.
+            </audio>
+
+            <div class="player-controls">
+              <button id="play-btn" class="btn-player">▶ Přehrát</button>
+              <div class="progress-bar-container" id="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+              </div>
+              <span id="time-display" class="time-display">0:00 / 3:15</span>
+            </div>
+            <div class="equalizer-visual">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details Box -->
+        <div class="box contact-box">
+          <div class="box-header">
+            <h3>✉ Kontakt & Odkazy</h3>
+          </div>
+          <ul class="contact-links">
+            <li><a href="#messages">Poslat zprávu</a></li>
+            <li><a href="#friends">Přidat do Přátel</a></li>
+            <li><a href="#forward">Přeposlat profil</a></li>
+            <li><a href="#favorites">Přidat k Oblíbeným</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Right Column -->
+      <section class="right-column">
+        <!-- About Me Section -->
+        <div class="box content-box">
+          <div class="box-header">
+            <h3>📖 O mně</h3>
+          </div>
+          <div class="box-body">
+            <p>
+              Ahoj, jsem Jonas. Pocházím z malého městečka Winden, obklopeného hustými lesy a zastíněného věžemi naší jaderné elektrárny. Můj život se od základu změnil na podzim roku 2019, kdy nejdříve zmizel můj otec Michael a následně v lesích u jeskyně zmizel malý Mikkel Nielsen.
+            </p>
+            <p>
+              Od té doby se snažím pochopit, co se ve Windenu skutečně děje. Hledám pravdu v temnotách windenských jeskyní, v černých dírách a časových smyčkách. Zjišťuji, že minulost, přítomnost a budoucnost nejsou oddělené – jsou propojené v nekonečném kruhu.
+            </p>
+            <div class="quote-callout">
+              <em>"Otázkou není KDE, ale KDY."</em>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mirrored Quotes Section (Czech & German side by side) -->
+        <div class="box content-box quotes-box">
+          <div class="box-header">
+            <h3>💬 Citáty / Zitate (CZ | DE)</h3>
+          </div>
+          <div class="box-body">
+            <div class="quote-pair">
+              <div class="quote-cz">
+                <span class="lang-flag">🇨🇿 Čeština</span>
+                <p>„Konec je počátek a počátek je konec.“</p>
+              </div>
+              <div class="quote-divider">⇄</div>
+              <div class="quote-de">
+                <span class="lang-flag">🇩🇪 Deutsch</span>
+                <p>„Das Ende ist der Anfang und der Anfang ist das Ende.“</p>
+              </div>
+            </div>
+
+            <hr class="quote-sep"/>
+
+            <div class="quote-pair">
+              <div class="quote-cz">
+                <span class="lang-flag">🇨🇿 Čeština</span>
+                <p>„To, co víme, je kapka. To, co nevíme, je oceán.“</p>
+              </div>
+              <div class="quote-divider">⇄</div>
+              <div class="quote-de">
+                <span class="lang-flag">🇩🇪 Deutsch</span>
+                <p>„Was wir wissen, ist ein Tropfen. Was wir nicht wissen, ein Ozean.“</p>
+              </div>
+            </div>
+
+            <hr class="quote-sep"/>
+
+            <div class="quote-pair">
+              <div class="quote-cz">
+                <span class="lang-flag">🇨🇿 Čeština</span>
+                <p>„Nejsme svobodní v tom, co děláme, protože nejsme svobodní v tom, co chceme.“</p>
+              </div>
+              <div class="quote-divider">⇄</div>
+              <div class="quote-de">
+                <span class="lang-flag">🇩🇪 Deutsch</span>
+                <p>„Wir sind nicht frei in dem, was wir tun, weil wir nicht frei sind in dem, was wir wollen.“</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Friends Section (Max 3 as requested) -->
+        <div class="box content-box top-friends-box">
+          <div class="box-header">
+            <h3>👥 Jonasovi Nejblíže (Top 3 Friends)</h3>
+          </div>
+          <div class="box-body">
+            <p class="friends-count">Jonas má <strong>3</strong> nejbližší přátele na časové ose:</p>
+            <div class="friends-grid">
+              <!-- Friend 1: Martha Nielsen -->
+              <div class="friend-card">
+                <div class="friend-name"><a href="#">Martha Nielsen</a></div>
+                <div class="friend-avatar-wrapper mirrored-card">
+                  <img src="assets/martha.webp" alt="Martha Nielsen" class="friend-photo">
+                </div>
+                <div class="friend-year">⏳ <strong>Rok prvního setkání:</strong><br>2019 / 1888 (v zrcadlovém světě)</div>
+                <div class="friend-desc">„Jsme perfektní pár. Nikdy nevěř ničemu jinému.“</div>
+              </div>
+
+              <!-- Friend 2: Mikkel Nielsen -->
+              <div class="friend-card">
+                <div class="friend-name"><a href="#">Mikkel Nielsen</a></div>
+                <div class="friend-avatar-wrapper mirrored-card">
+                  <img src="assets/mikkel.webp" alt="Mikkel Nielsen" class="friend-photo">
+                </div>
+                <div class="friend-year">⏳ <strong>Rok prvního setkání:</strong><br>2019 (jako kamarád) / 1986 (otec Michael)</div>
+                <div class="friend-desc">Malý kouzelník z 2019 a Jonasův otec z roku 1986.</div>
+              </div>
+
+              <!-- Friend 3: Claudia Tiedemann -->
+              <div class="friend-card">
+                <div class="friend-name"><a href="#">Claudia Tiedemann</a></div>
+                <div class="friend-avatar-wrapper mirrored-card">
+                  <img src="assets/claudia.jpg" alt="Claudia Tiedemann" class="friend-photo">
+                </div>
+                <div class="friend-year">⏳ <strong>Rok prvního setkání:</strong><br>2020 / 1987 (Bílá Ďáblice)</div>
+                <div class="friend-desc">Průvodkyně labyrintem času a strážkyně tajemství.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comments Section (Classic MySpace Vibe) -->
+        <div class="box content-box comments-box">
+          <div class="box-header">
+            <h3>💬 Vzkazy na zdi (Comments)</h3>
+          </div>
+          <div class="box-body">
+            <div class="comment-item">
+              <div class="comment-author">
+                <strong>Martha N.</strong>
+                <span class="comment-date">03.11.2019 22:15</span>
+              </div>
+              <p>Jonasi, kde jsi byl dnešní noc? Viděla jsem tě u jeskyně v té žluté pláštěnce... Musíme si promluvit.</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-author">
+                <strong>H.G. Tannhaus</strong>
+                <span class="comment-date">08.11.1953 14:02</span>
+              </div>
+              <p>Čas není přímka. Geometrie triquetry ukazuje, že vše se opakuje. Přístroj je téměř hotov.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="myspace-footer">
+    <p>© 2006-2019 SpaceNet / Winden Time Travel Portal. Všechna práva vyhrazena.</p>
+    <p class="latin-quote">"Sic Mundus Creatus Est" — Tak byl stvořen svět.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
