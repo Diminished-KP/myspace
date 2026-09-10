@@ -1,0 +1,4 @@
+127.0.0.1 - - [10/Sep/2026 07:31:56] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 07:31:56] "GET /styles.css HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 07:31:56] "GET /script.js HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2026 07:31:57] "GET /assets/goodbye_theme.mp3 HTTP/1.1" 200 -

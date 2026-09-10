@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpaceNet - Jonas Kahnwald (Winden 2019 / 1986 / 1953)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="myspace-header">
+    <div class="header-container">
+      <div class="logo">
+        <span class="logo-text">space<span>net</span></span>
+        <span class="tagline">// Sic Mundus Creatus Est</span>
+      </div>
+      <nav class="top-nav">
+        <a href="#">Domů</a> |
+        <a href="#">Lidé</a> |
+        <a href="#">Hledat</a> |
+        <a href="#">Hudba</a> |
+        <a href="#">Fóra</a> |
+        <a href="#">Časová osa</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="profile-container">
+    <!-- Top banner / User title -->
+    <div class="user-header">
+      <h1 class="user-name">Jonas Kahnwald</h1>
+      <p class="user-headline">"Konec je počátek a počátek je konec."</p>
+    </div>
+
+    <div class="grid-layout">
+      <!-- Left Column -->
+      <aside class="left-column">
+        <!-- Main Profile Box -->
+        <div class="box profile-card">
+          <div class="avatar-wrapper mirrored-frame">
+            <svg class="avatar-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="raincoatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffd000" />
+                  <stop offset="100%" stop-color="#b88600" />
+                </linearGradient>
+                <filter id="contrastFilter">
+                  <feComponentTransfer>
+                    <feFuncR type="contrast" slope="1.4"/>
+                    <feFuncG type="contrast" slope="1.4"/>
+                    <feFuncB type="contrast" slope="1.4"/>
+                  </feComponentTransfer>
+                </filter>
+              </defs>
+
+              <!-- Dark background -->
+              <rect width="300" height="300" fill="#0d1117"/>
+
+              <!-- Mirrored background Triquetra shapes -->
+              <g opacity="0.15" stroke="#ffe600" stroke-width="2" fill="none">
+                <circle cx="110" cy="130" r="70" />
+                <circle cx="190" cy="130" r="70" />
+                <circle cx="150" cy="190" r="70" />
+              </g>
+
+              <!-- Jonas Stylized Silhouette in Yellow Raincoat with Mirror effect -->
+              <g class="character-art" filter="url(#contrastFilter)">
+                <!-- Raincoat Body -->
+                <path d="M 60 300 L 90 180 L 150 160 L 210 180 L 240 300 Z" fill="url(#raincoatGrad)" />
+                <!-- Zipper / Dark Contrast Line -->
+                <line x1="150" y1="160" x2="150" y2="300" stroke="#111" stroke-width="4"/>
+                <!-- Hood -->
+                <path d="M 95 180 Q 80 100 150 70 Q 220 100 205 180 Z" fill="url(#raincoatGrad)" />
+                <path d="M 110 180 Q 100 120 150 95 Q 200 120 190 180 Z" fill="#090a0f" />
+                <!-- Shadowy Face -->
+                <ellipse cx="150" cy="140" rx="30" ry="38" fill="#181a20" />
+                <!-- Sad Eyes / High Contrast -->
+                <ellipse cx="138" cy="135" rx="4" ry="5" fill="#e6edf3" opacity="0.8"/>
+                <ellipse cx="162" cy="135" rx="4" ry="5" fill="#e6edf3" opacity="0.8"/>
+                <path d="M 140 158 Q 150 154 160 158" stroke="#555" stroke-width="2" fill="none"/>
+              </g>
+
+              <!-- Kaleidoscope Overlay Grid lines -->
+              <g opacity="0.3" stroke="#ffd000" stroke-width="1">
+                <line x1="0" y1="0" x2="300" y2="300"/>
+                <line x1="300" y1="0" x2="0" y2="300"/>
+                <line x1="150" y1="0" x2="150" y2="300"/>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Basic Info Table -->
+          <table class="info-table">
+            <tbody>
+              <tr>
+                <th>Jméno:</th>
+                <td>Jonas Kahnwald</td>
+              </tr>
+              <tr>
+                <th>Věk:</th>
+                <td>16 (v roce 2019)</td>
+              </tr>
+              <tr>
+                <th>Bydliště:</th>
+                <td>Winden, Německo</td>
+              </tr>
+              <tr>
+                <th>Status:</th>
+                <td>Ztracený v čase ⏳</td>
+              </tr>
+              <tr>
+                <th>Nálada:</th>
+                <td>Hledající odpovědi... 🌀</td>
+              </tr>
+              <tr>
+                <th>Poslední přihlášení:</th>
+                <td>04.11.2019 / 12.11.1953</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Music Player Simulation -->
+        <div class="box music-player-box">
+          <div class="box-header">
+            <h3>🎵 Jonasův Přehrávač</h3>
+          </div>
+          <div class="player-content">
+            <div class="track-info">
+              <span class="track-title">Apparat – Goodbye</span>
+              <span class="track-sub">Znělka / Theme song (Dark)</span>
+            </div>
+
+            <audio id="audio-player" preload="metadata">
+              <!-- Royalty free ambient / dark synth atmospheric audio sample synthesized or embedded -->
+              <source src="assets/goodbye_theme.mp3" type="audio/mpeg">
+              Váš prohlížeč nepodporuje prehrávání audia.
+            </audio>
+
+            <div class="player-controls">
+              <button id="play-btn" class="btn-player">▶ Přehrát</button>
+              <div class="progress-bar-container" id="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+              </div>
+              <span id="time-display" class="time-display">0:00 / 3:15</span>
+            </div>
+            <div class="equalizer-visual">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details Box -->
+        <div class="box contact-box">
+          <div class="box-header">
+            <h3>✉ Kontakt & Odkazy</h3>
+          </div>
+          <ul class="contact-links">
+            <li><a href="#messages">Poslat zprávu</a></li>
+            <li><a href="#friends">Přidat do Přátel</a></li>
+            <li><a href="#forward">Přeposlat profil</a></li>
+            <li><a href="#favorites">Přidat k Oblíbeným</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Right Column -->
+      <section class="right-column">
+        <!-- About Me Section -->
+        <div class="box content-box">
+          <div class="box-header">
+            <h3>📖 O mně</h3>
+          </div>
+          <div class="box-body">
+            <p>
+              Ahoj, jsem Jonas. Pocházím z malého městečka Winden, obklopeného hustými lesy a zastíněného věžemi naší jaderné elektrárny. Můj život se od základu změnil na podzim roku 2019, kdy nejdříve zmizel můj otec Michael a následně v lesích u jeskyně zmizel malý Mikkel Nielsen.
+            </p>
+            <p>
+              Od té doby se snažím pochopit, co se ve Windenu skutečně děje. Hledám pravdu v temnotách windenských jeskyní, v černých dírách a časových smyčkách. Zjišťuji, že minulost, přítomnost a budoucnost nejsou oddělené – jsou propojené v nekonečném kruhu.
+            </p>
+            <div class="quote-callout">
+              <em>"Otázkou není KDE, ale KDY."</em>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mirrored Quotes Section (Czech & German side by side) -->
+        <div class="box content-box quotes-box">
+          <div class="box-header">
+            <h3>💬 Citáty / Zitate (CZ | DE)</h3>
+          </div>
+          <div class="box-body">
+            <div class="quote-pair">
+              <div class="quote-cz">
+                <span class="lang-flag">🇨🇿 Čeština</span>
+                <p>„Konec je počátek a počátek je konec.“</p>
+              </div>
+              <div class="quote-divider">⇄</div>
+              <div class="quote-de">
+                <span class="lang-flag">🇩🇪 Deutsch</span>
+                <p>„Das Ende ist der Anfang und der Anfang ist das Ende.“</p>
+              </div>
+            </div>
+
+            <hr class="quote-sep"/>
+
+            <div class="quote-pair">
+              <div class="quote-cz">
+                <span class="lang-flag">🇨🇿 Čeština</span>
+                <p>„To, co víme, je kapka. To, co nevíme, je oceán.“</p>
+              </div>
+              <div class="quote-divider">⇄</div>
+              <div class="quote-de">
+                <span class="lang-flag">🇩🇪 Deutsch</span>
+                <p>„Was wir wissen, ist ein Tropfen. Was wir nicht wissen, ein Ozean.“</p>
+              </div>
+            </div>
+
+            <hr class="quote-sep"/>
+
+            <div class="quote-pair">
+              <div class="quote-cz">
+                <span class="lang-flag">🇨🇿 Čeština</span>
+                <p>„Nejsme svobodní v tom, co děláme, protože nejsme svobodní v tom, co chceme.“</p>
+              </div>
+              <div class="quote-divider">⇄</div>
+              <div class="quote-de">
+                <span class="lang-flag">🇩🇪 Deutsch</span>
+                <p>„Wir sind nicht frei in dem, was wir tun, weil wir nicht frei sind in dem, was wir wollen.“</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Friends Section (Max 3 as requested) -->
+        <div class="box content-box top-friends-box">
+          <div class="box-header">
+            <h3>👥 Jonasovi Nejblíže (Top 3 Friends)</h3>
+          </div>
+          <div class="box-body">
+            <p class="friends-count">Jonas má <strong>3</strong> nejbližší přátele na časové ose:</p>
+            <div class="friends-grid">
+              <!-- Friend 1: Martha Nielsen -->
+              <div class="friend-card">
+                <div class="friend-name"><a href="#">Martha Nielsen</a></div>
+                <div class="friend-avatar-wrapper mirrored-card">
+                  <svg viewBox="0 0 100 100" class="friend-svg">
+                    <rect width="100" height="100" fill="#161b22"/>
+                    <circle cx="50" cy="40" r="22" fill="#d0a85c" opacity="0.8"/>
+                    <path d="M 20 100 Q 20 70 50 68 Q 80 70 80 100 Z" fill="#2d3748"/>
+                    <!-- Red string of fate element -->
+                    <path d="M 10 90 Q 50 40 90 90" stroke="#e53e3e" stroke-width="2" fill="none"/>
+                  </svg>
+                </div>
+                <div class="friend-desc">„Jsme perfektní pár. Nikdy nevěř ničemu jinému.“</div>
+              </div>
+
+              <!-- Friend 2: Mikkel Nielsen -->
+              <div class="friend-card">
+                <div class="friend-name"><a href="#">Mikkel Nielsen</a></div>
+                <div class="friend-avatar-wrapper mirrored-card">
+                  <svg viewBox="0 0 100 100" class="friend-svg">
+                    <rect width="100" height="100" fill="#161b22"/>
+                    <circle cx="50" cy="38" r="20" fill="#a0aec0" opacity="0.8"/>
+                    <path d="M 25 100 Q 25 70 50 65 Q 75 70 75 100 Z" fill="#4a5568"/>
+                    <!-- Skeleton hoodie symbol -->
+                    <path d="M 45 75 L 55 75 M 50 70 L 50 90" stroke="#fff" stroke-width="2"/>
+                  </svg>
+                </div>
+                <div class="friend-desc">Malý kouzelník. Houdini z Windenu.</div>
+              </div>
+
+              <!-- Friend 3: Claudia Tiedemann -->
+              <div class="friend-card">
+                <div class="friend-name"><a href="#">Claudia Tiedemann</a></div>
+                <div class="friend-avatar-wrapper mirrored-card">
+                  <svg viewBox="0 0 100 100" class="friend-svg">
+                    <rect width="100" height="100" fill="#161b22"/>
+                    <circle cx="50" cy="40" r="21" fill="#cbd5e0" opacity="0.8"/>
+                    <path d="M 20 100 Q 20 68 50 65 Q 80 68 80 100 Z" fill="#1a202c"/>
+                    <!-- Heterochromia eyes indicator / Triquetra -->
+                    <circle cx="43" cy="38" r="3" fill="#3182ce"/>
+                    <circle cx="57" cy="38" r="3" fill="#dd6b20"/>
+                  </svg>
+                </div>
+                <div class="friend-desc">Bílá Ďáblice. Průvodkyně v labyrintu času.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comments Section (Classic MySpace Vibe) -->
+        <div class="box content-box comments-box">
+          <div class="box-header">
+            <h3>💬 Vzkazy na zdi (Comments)</h3>
+          </div>
+          <div class="box-body">
+            <div class="comment-item">
+              <div class="comment-author">
+                <strong>Martha N.</strong>
+                <span class="comment-date">03.11.2019 22:15</span>
+              </div>
+              <p>Jonasi, kde jsi byl dnešní noc? Viděla jsem tě u jeskyně v té žluté pláštěnce... Musíme si promluvit.</p>
+            </div>
+            <div class="comment-item">
+              <div class="comment-author">
+                <strong>H.G. Tannhaus</strong>
+                <span class="comment-date">08.11.1953 14:02</span>
+              </div>
+              <p>Čas není přímka. Geometrie triquetry ukazuje, že vše se opakuje. Přístroj je téměř hotov.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="myspace-footer">
+    <p>© 2006-2019 SpaceNet / Winden Time Travel Portal. Všechna práva vyhrazena.</p>
+    <p class="latin-quote">"Sic Mundus Creatus Est" — Tak byl stvořen svět.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
