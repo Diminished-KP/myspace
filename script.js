@@ -168,4 +168,48 @@ document.addEventListener('DOMContentLoaded', () => {
       }[m];
     });
   }
+
+  // Mouse Tracker - Unicorn Trail based on distance traveled
+  let lastX = null;
+  let lastY = null;
+  const distanceThreshold = 35; // Pixels distance needed to spawn a new unicorn
+
+  window.addEventListener('mousemove', (e) => {
+    const currentX = e.clientX;
+    const currentY = e.clientY;
+
+    if (lastX === null || lastY === null) {
+      lastX = currentX;
+      lastY = currentY;
+      spawnUnicorn(currentX, currentY);
+      return;
+    }
+
+    const deltaX = currentX - lastX;
+    const deltaY = currentY - lastY;
+    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+    if (distance >= distanceThreshold) {
+      spawnUnicorn(currentX, currentY);
+      lastX = currentX;
+      lastY = currentY;
+    }
+  });
+
+  function spawnUnicorn(x, y) {
+    const unicorn = document.createElement('div');
+    unicorn.className = 'unicorn-trail';
+    unicorn.textContent = '🦄';
+    unicorn.style.left = `${x}px`;
+    unicorn.style.top = `${y}px`;
+
+    document.body.appendChild(unicorn);
+
+    // Remove element after animation completes (1200ms)
+    setTimeout(() => {
+      if (unicorn.parentNode) {
+        unicorn.parentNode.removeChild(unicorn);
+      }
+    }, 1200);
+  }
 });
