@@ -32,6 +32,56 @@ body {
   font-size: 12px;
   line-height: 1.5;
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Mirrored Kaleidoscope Animated Background */
+.kaleidoscope-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.18;
+}
+
+.kaleidoscope-bg-svg {
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+}
+
+.kaleidoscope-group {
+  transform-origin: 500px 500px;
+}
+
+.kaleidoscope-group.group-1 {
+  animation: rotateKaleidoscopeCw 45s linear infinite;
+}
+
+.kaleidoscope-group.group-2 {
+  animation: rotateKaleidoscopeCcw 35s linear infinite;
+}
+
+@keyframes rotateKaleidoscopeCw {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes rotateKaleidoscopeCcw {
+  0% { transform: rotate(0deg) scale(1.1); }
+  50% { transform: rotate(-180deg) scale(0.95); }
+  100% { transform: rotate(-360deg) scale(1.1); }
+}
+
+header, main, footer {
+  position: relative;
+  z-index: 1;
 }
 
 a {
@@ -312,6 +362,171 @@ a:hover {
   100% { height: 100%; background-color: var(--accent-yellow); }
 }
 
+/* Time Machine Widget */
+.time-machine-content {
+  text-align: center;
+}
+
+.tm-description {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.tm-device-wrapper {
+  margin: 10px 0 15px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.time-machine-button {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #2a1f0a 0%, #0d0a04 70%, #000000 100%);
+  border: 3px solid var(--accent-yellow-dim);
+  box-shadow: 0 0 15px rgba(255, 208, 0, 0.2), inset 0 0 15px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.time-machine-button:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 25px rgba(255, 208, 0, 0.5), inset 0 0 10px rgba(255, 208, 0, 0.3);
+  border-color: var(--accent-yellow);
+}
+
+.tm-graphic-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed var(--accent-yellow-dim);
+  pointer-events: none;
+}
+
+.outer-ring {
+  width: 120px;
+  height: 120px;
+  border-width: 1px;
+  animation: spinRing 20s linear infinite;
+}
+
+.inner-ring {
+  width: 90px;
+  height: 90px;
+  border-style: dotted;
+  border-color: var(--accent-yellow);
+  animation: spinRingRev 15s linear infinite;
+}
+
+.tm-core {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tm-icon {
+  font-size: 24px;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.tm-btn-text {
+  font-size: 9px;
+  font-weight: bold;
+  color: var(--accent-yellow);
+  letter-spacing: 1px;
+}
+
+/* Time Machine Active Animation */
+.time-machine-button.active {
+  animation: tmPulseGlow 0.5s ease-in-out infinite alternate;
+}
+
+.time-machine-button.active .outer-ring {
+  animation: spinRing 1s linear infinite;
+  border-color: var(--accent-yellow);
+}
+
+.time-machine-button.active .inner-ring {
+  animation: spinRingRev 0.8s linear infinite;
+  border-color: #ffffff;
+}
+
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinRingRev {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes tmPulseGlow {
+  from {
+    box-shadow: 0 0 15px rgba(255, 208, 0, 0.4), inset 0 0 10px rgba(255, 208, 0, 0.3);
+    filter: brightness(1);
+  }
+  to {
+    box-shadow: 0 0 35px rgba(255, 208, 0, 0.9), inset 0 0 20px rgba(255, 208, 0, 0.7);
+    filter: brightness(1.4);
+  }
+}
+
+/* Time Machine Result Display */
+.tm-result {
+  background: #090d14;
+  border: 1px solid var(--accent-yellow-dim);
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.tm-result.hidden {
+  display: none;
+}
+
+.tm-year-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid #1a2333;
+  padding-bottom: 6px;
+}
+
+.tm-label {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.tm-year-num {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--accent-yellow);
+  text-shadow: 0 0 8px rgba(255, 208, 0, 0.4);
+  font-family: monospace;
+}
+
+.tm-quote-content {
+  font-style: italic;
+  font-size: 11px;
+  color: #e2e8f0;
+  line-height: 1.4;
+  margin: 0;
+}
+
 /* Contact Links */
 .contact-links {
   list-style: none;
@@ -475,6 +690,7 @@ a:hover {
 .comment-author {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 4px;
 }
 
@@ -482,9 +698,104 @@ a:hover {
   color: var(--accent-yellow);
 }
 
+.comment-year-badge {
+  color: var(--accent-yellow-dim);
+  font-size: 11px;
+  font-weight: normal;
+  margin-left: 4px;
+}
+
 .comment-date {
   font-size: 10px;
   color: var(--text-muted);
+}
+
+/* Send Message Form */
+.send-message-box {
+  margin-top: 25px;
+  border-left: 3px solid var(--accent-yellow);
+}
+
+.message-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  font-size: 11px;
+  color: var(--text-main);
+  font-weight: bold;
+}
+
+.year-highlight {
+  color: var(--accent-yellow);
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+.form-control {
+  background-color: #0b0e14;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 8px 10px;
+  border-radius: 3px;
+  font-family: var(--font-family);
+  font-size: 12px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+  border-color: var(--accent-yellow);
+  box-shadow: 0 0 8px rgba(255, 208, 0, 0.25);
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slider-min, .slider-max {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-family: monospace;
+}
+
+.form-range {
+  flex-grow: 1;
+  accent-color: var(--accent-yellow);
+  cursor: pointer;
+  height: 6px;
+  background: #18202d;
+  border-radius: 3px;
+}
+
+.btn-send-msg {
+  background: linear-gradient(180deg, #2b2207 0%, #151103 100%);
+  border: 1px solid var(--accent-yellow-dim);
+  color: var(--accent-yellow);
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  margin-top: 5px;
+}
+
+.btn-send-msg:hover {
+  background: var(--accent-yellow);
+  color: #000;
+  border-color: #ffffff;
+  box-shadow: 0 0 12px rgba(255, 208, 0, 0.4);
 }
 
 /* Footer */

@@ -7,6 +7,26 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Animated Mirrored Kaleidoscope Background -->
+  <div class="kaleidoscope-bg-container" aria-hidden="true">
+    <svg class="kaleidoscope-bg-svg" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+      <g class="kaleidoscope-group group-1">
+        <polygon points="500,100 650,500 500,900 350,500" stroke="#ffd000" stroke-width="1.5" fill="none" opacity="0.35"/>
+        <polygon points="100,500 500,650 900,500 500,350" stroke="#ffe600" stroke-width="1.5" fill="none" opacity="0.35"/>
+        <circle cx="500" cy="500" r="380" stroke="#ffd000" stroke-width="1" stroke-dasharray="8,12" fill="none" opacity="0.25"/>
+        <circle cx="500" cy="500" r="220" stroke="#ffd000" stroke-width="1" stroke-dasharray="4,8" fill="none" opacity="0.3"/>
+        <line x1="0" y1="0" x2="1000" y2="1000" stroke="#ffd000" stroke-width="1" opacity="0.2"/>
+        <line x1="1000" y1="0" x2="0" y2="1000" stroke="#ffd000" stroke-width="1" opacity="0.2"/>
+      </g>
+      <g class="kaleidoscope-group group-2">
+        <path d="M 500,150 Q 850,500 500,850 Q 150,500 500,150 Z" stroke="#ffd000" stroke-width="1" fill="none" opacity="0.25"/>
+        <path d="M 150,500 Q 500,850 850,500 Q 500,150 150,500 Z" stroke="#ffe600" stroke-width="1" fill="none" opacity="0.25"/>
+        <polygon points="500,250 750,500 500,750 250,500" stroke="#ffd000" stroke-width="1" fill="none" opacity="0.25"/>
+        <circle cx="500" cy="500" r="120" stroke="#ffe600" stroke-width="1.5" fill="none" opacity="0.3"/>
+      </g>
+    </svg>
+  </div>
+
   <!-- Header / Navigation -->
   <header class="myspace-header">
     <div class="header-container">
@@ -116,6 +136,35 @@
               <span class="bar"></span>
               <span class="bar"></span>
               <span class="bar"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Time Machine Widget Box -->
+        <div class="box time-machine-box">
+          <div class="box-header">
+            <h3>⏳ Stroj Času (Tannhausův Přístroj)</h3>
+          </div>
+          <div class="box-body time-machine-content">
+            <p class="tm-description">Aktivuj přístroj pro cestování v čase a propoj se s jinou časovou osou.</p>
+            <div class="tm-device-wrapper">
+              <button id="time-machine-btn" class="time-machine-button" aria-label="Aktivovat stroj času">
+                <div class="tm-graphic-ring outer-ring"></div>
+                <div class="tm-graphic-ring inner-ring"></div>
+                <div class="tm-core">
+                  <span class="tm-icon">⌛</span>
+                  <span class="tm-btn-text">SKOČIT V ČASE</span>
+                </div>
+              </button>
+            </div>
+            <div id="time-machine-result" class="tm-result hidden">
+              <div class="tm-year-display">
+                <span class="tm-label">Cílový rok:</span>
+                <span id="tm-year-val" class="tm-year-num">2019</span>
+              </div>
+              <div class="tm-quote-display">
+                <p id="tm-quote-text" class="tm-quote-content">"Konec je počátek a počátek je konec."</p>
+              </div>
             </div>
           </div>
         </div>
@@ -244,25 +293,60 @@
         </div>
 
         <!-- Comments Section (Classic MySpace Vibe) -->
-        <div class="box content-box comments-box">
+        <div class="box content-box comments-box" id="messages">
           <div class="box-header">
             <h3>💬 Vzkazy na zdi (Comments)</h3>
           </div>
           <div class="box-body">
-            <div class="comment-item">
-              <div class="comment-author">
-                <strong>Martha N.</strong>
-                <span class="comment-date">03.11.2019 22:15</span>
+            <div id="comments-list" class="comments-list">
+              <div class="comment-item">
+                <div class="comment-author">
+                  <strong>Martha N. <span class="comment-year-badge">(rok 2019)</span></strong>
+                  <span class="comment-date">03.11.2019 22:15</span>
+                </div>
+                <p>Jonasi, kde jsi byl dnešní noc? Viděla jsem tě u jeskyně v té žluté pláštěnce... Musíme si promluvit.</p>
               </div>
-              <p>Jonasi, kde jsi byl dnešní noc? Viděla jsem tě u jeskyně v té žluté pláštěnce... Musíme si promluvit.</p>
-            </div>
-            <div class="comment-item">
-              <div class="comment-author">
-                <strong>H.G. Tannhaus</strong>
-                <span class="comment-date">08.11.1953 14:02</span>
+              <div class="comment-item">
+                <div class="comment-author">
+                  <strong>H.G. Tannhaus <span class="comment-year-badge">(rok 1953)</span></strong>
+                  <span class="comment-date">08.11.1953 14:02</span>
+                </div>
+                <p>Čas není přímka. Geometrie triquetry ukazuje, že vše se opakuje. Přístroj je téměř hotov.</p>
               </div>
-              <p>Čas není přímka. Geometrie triquetry ukazuje, že vše se opakuje. Přístroj je téměř hotov.</p>
             </div>
+          </div>
+        </div>
+
+        <!-- Send Message Box (Bottom of the page) -->
+        <div class="box content-box send-message-box" id="send-message-section">
+          <div class="box-header">
+            <h3>✉ Poslat zprávu Jonasovi napříč časem</h3>
+          </div>
+          <div class="box-body">
+            <form id="message-form" class="message-form">
+              <div class="form-group">
+                <label for="msg-sender">Vaše Jméno / Identita:</label>
+                <input type="text" id="msg-sender" class="form-control" placeholder="Např. Martha, Mikkel, Neznámý poutník..." required />
+              </div>
+
+              <div class="form-group">
+                <label for="msg-year-slider">
+                  Rok, ze kterého posíláte zprávu: <strong id="slider-year-display" class="year-highlight">2019</strong>
+                </label>
+                <div class="slider-container">
+                  <span class="slider-min">1800</span>
+                  <input type="range" id="msg-year-slider" min="1800" max="2100" value="2019" class="form-range" />
+                  <span class="slider-max">2100</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="msg-text">Text zprávy pro Jonase:</label>
+                <textarea id="msg-text" class="form-control" rows="3" placeholder="Napište Jonasovi zprávu do minulosti či budoucnosti..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-send-msg">⚡ Odeslat zprávu časovou smyčkou</button>
+            </form>
           </div>
         </div>
       </section>
